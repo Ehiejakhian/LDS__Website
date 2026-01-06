@@ -1,0 +1,566 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Bilbo+Swash+Caps&family=Birthstone&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&display=swap');
+
+@mixin df($j:normal, $a:normal, $fl:row, $g:0){
+  display: flex;
+  justify-content: $j;
+  align-items: $a;
+  flex-flow: $fl;
+  gap: $g;
+}
+
+$mini-tab: 500px;
+$tab: 700px;
+$desktop: 1100px;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'outfit';
+}
+body {
+  font-size: 1rem;
+  // @media (min-width: $tab) {
+  //   font-size: 18px;
+  // }
+  // @media (min-width: $desktop) {
+  //   font-size: 20px;
+  // }
+  img {
+    display: block;
+  }
+}
+
+header {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 20px 5%;
+  @include df(space-between, center, row, 10px);
+  h2 {
+    color: transparent;
+    -webkit-text-stroke: 1px #000;
+  }
+  #nav-ch,.nav_more {
+    display: none;
+  }
+  .menu {
+    @include df(normal, normal, column, 2px);
+    span {
+      width: 25px;
+      height: 3px;
+      border: 1px solid;
+    }
+  }
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0,0,0,.4);
+    transition: all .3s;
+  }
+  nav {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    width: 70dvw;
+    height: 100dvh;
+    padding: 10px 5%;
+    transition: all .3s;
+    background-color: #000;
+    
+    color: #ccc;
+    @include df(normal, normal, column, 10px);
+    label {
+      color: transparent;
+      -webkit-text-stroke: 1px #ccc;
+      font-size: 3rem;
+      align-self: end;
+      line-height: 1;
+    }
+    ul {
+      list-style: none;
+      @include df(normal, normal, column, 10px);
+      li {
+        padding-bottom: 10px;
+        margin: 10px 0;
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #ccc;
+        }
+        a {
+          color: #ccc;
+          text-decoration: none;
+        }
+      }
+    }
+    .copy {
+      margin-top: auto;
+      align-self: end;
+      text-align: center;
+    }
+  }
+  #nav-ch:checked {
+    & ~ nav {
+      right: 0%;
+    }
+    & ~ .overlay {
+      display: block;
+    }
+  }
+  @media (min-width: $tab) {
+    .menu {
+      display: none;
+    }
+    nav {
+      position: static;
+      height: auto;
+      width: auto;
+      background-color: transparent;
+      flex-flow: row;
+      padding: 0;
+      color: #000;
+      label {
+        display: none;
+      }
+      ul {
+        flex-flow: row;
+        li {
+          margin: 0 10px;
+          padding: 0;
+          border: none !important;
+          a {
+            color: #121212;
+            transition: all .3s;
+            @include df(normal, center, column, 5px);
+            &::after {
+              content:'';
+              display: block;
+              width: 0%;
+              height: 2px;
+              background-color: #121212;
+              transition: all .3s;
+            }
+            &:hover::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .copy {
+        display: none;
+      }
+    }
+  }
+  @media (min-width: $tab) and (max-width: $desktop) {
+    nav ul li {
+      &:nth-child(4),&:nth-child(5),&:nth-child(6) {
+        display: none;
+      }
+    }
+    .nav_more {
+      display: block;
+      position: relative;
+      #nav-more {
+        display: none;
+      }
+      label {
+        transition: all .3s;
+        @include df(normal, normal, column, 3px);
+        span {
+          width: 25px;
+          height: 5px;
+          border: 2px solid #121212;
+          transition: all .3s;
+        }
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+      ul {
+        padding: 20px;
+        position: absolute;
+        width: 250px;
+        right: 0;
+        top: calc(110% + 40px);
+        list-style-type: none;
+        transition: all .3s;
+        background-color: #121212;
+        @include df(normal, normal, column, 10px);
+        z-index: -1;
+        opacity: 0;
+        li {
+          a {
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+            color: #ccc;
+            transition: all .3s;
+            &:hover {
+              transform: scale(1.05);
+            }
+          }
+        }
+        &::before {
+          content:'';
+          border: 2px solid #121212;
+          position: absolute;
+          border: 17px solid;
+          border-left-color: transparent;
+          border-top-color: transparent;
+          top: 0;
+          right: 0;
+          transform: translateY(-100%);
+        }
+      }
+      #nav-more:checked {
+        & ~ label {
+          span {
+            background-color: #121212;
+          }
+        }
+        & ~ ul {
+          z-index: 3;
+          opacity: 1;
+        }
+      }
+    }
+
+  }
+}
+
+.hero {
+  height: 100dvh;
+  background-image: linear-gradient(to bottom, #fff, #000);
+  @include df(center, center, column, 0px);
+  position: relative;
+  overflow: hidden;
+  video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
+  .hero__content {
+    padding: 0 5%;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-image: linear-gradient(to bottom, transparent, #000);
+    @include df(center, center, column, 0px);
+    > span {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+      width: 100%;
+      text-align: center;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-top: 10px;
+      .textstroke {
+        color: transparent;
+        -webkit-text-stroke: 1px #fff;
+      }
+    }
+    p {
+      text-align: center;
+      color: #ccc;
+      margin-top: 10px;
+    }
+    a {
+      text-decoration: none;
+      color: #fff;
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      border-radius: 30px;
+      margin-top: 10px;
+      transition: all .3s;
+      &:hover {
+        background-color: rgba(#121212,.8);
+      }
+    }
+    >* {
+      max-width: 800px;
+    }
+    @media (min-width: $desktop) {
+      h1 {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+.services {
+  padding: 20px 5%;
+  background-image: linear-gradient(to bottom, #000, #fff);
+  min-height: 100dvh;
+  @include df(space-between, normal, column, 10px);
+  @media (min-width: $desktop) {
+    @include df(space-between, center, column, 10px);
+    >* {
+      @media (min-width: $desktop) {
+        max-width: $desktop;
+      }
+    }
+  }
+  
+  >div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    img {
+      display: block;
+      width: 100%;
+    }
+    @media (min-width: $tab) {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  }
+  &__manual, &__auto {
+    &__content {
+      @include df(normal, start, column, 20px);
+      h2 {
+        font-variant: small-caps;
+        font-size: clamp(2rem, 5dvw, 3rem);
+        color: transparent;
+        -webkit-text-stroke: 1px #fff;
+      }
+      a {
+        color: #ccc;
+        background: #121212;
+        padding: 10px 20px;
+        transition: all .3s;
+        &:hover {
+          background-color: #3d3c3c;
+          color: #fff;
+        }
+      }
+    }
+  }
+  &__manual {
+    color: #fff;
+    direction: rtl;
+    &__content {
+      direction: ltr;
+    }
+  }
+  &__auto {
+    &__content {
+      h2 {
+        -webkit-text-fill-color: #000;
+      }
+    }
+  }
+  
+}
+
+.more {
+  border: 2px solid;
+  padding: 50px 5%;
+  min-height: 100dvh;
+  position: relative;
+  @include df(normal, normal, column-reverse, 50px);
+  @media (min-width: $tab) {
+    @include df(normal, center, row, 50px);
+  }
+  &__content {
+    @include df(center, normal, column, 30px);
+    h1 {
+      font-size: clamp(2.7rem, 5dvw, 3rem);
+      text-transform: uppercase;
+    }
+    >* {
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all .3s;
+      transition-delay: .5s;
+      &.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+  &__images {
+    // @for ($i = 1;;$i++) {}
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    gap: 10px;
+    grid-template-areas:
+      "c d "
+      "c d "
+      "c s "
+      "c s "
+    ;
+    >* {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 2px solid #121212;
+      border-radius: 10px;
+    }
+    &__cac {
+      grid-area: c;
+    }
+    &__driving {
+      grid-area: d;
+    }
+    &__solar {
+      grid-area: s;
+    }
+  }
+}
+
+.contact {
+  min-height: 100dvh;
+  @include df(normal, normal, column, 20px);
+  &__img {
+    position: absolute;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__content {
+    position: absolute;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 20px 5%;
+    height: 100%;
+    background-color: #121212;
+    @include df(center, center, column, 10px);
+    @media (min-width: $tab) {
+      width: 50%;
+      max-width: calc($tab - 100px);
+    }
+    h3 {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: clamp(2rem, 5dvw, 3rem);
+      margin-bottom: 20px;
+    }
+    &__form {
+      width: 100%;
+      @include df(normal, normal, column, 20px);
+
+      > div {
+        @include df(normal, normal, column, 10px);
+        .entry__area {
+          width: 100%;
+          border: none;
+          position: relative;
+          @include df(normal, center);
+          legend {
+            padding: 0 10px;
+            font-size: 14px;
+            color: #ccc;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background-color: #121212;
+            transition: all .3s;
+          }
+          &:focus-within {
+            legend {
+              color: green;
+            }
+          }
+        }
+        input,textarea {
+          width: 100%;
+          color: #fff;
+          display: block;
+          padding: 15px 20px;
+          border: none;
+          font-weight: 700;
+          border: 1px solid #ccc;
+          background-color: #121212;
+          font-size: 16px;
+          border-radius: 5px;
+          transition: all .3s;
+          outline: none;
+          &:focus {
+            border: 2px solid green;
+          }
+        }
+        .error-message {
+          font-size: 12px;
+          color: crimson;
+          display: none;
+          //@include df(normal, center, row, 5px);
+          &::before {
+            content: '!';
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border: 1px solid crimson;
+            border-radius: 50%;
+            text-align: center;
+            font-weight: 700;
+            font-style: normal;
+          }
+        }
+      }
+      &__submit {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        background-color: #121212;
+        font-weight: 700;
+        color: #fff;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all .3s;
+        &:hover {
+          background-color: #3d3c3c;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  padding: 20px 5%;
+  background-color: #000;
+  color: #fff;
+  min-height: 50dvh;
+  @include df(normal, normal, column, 10px);
+  h1 {
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+  }
+  p:first-of-type {
+    color: #ccc;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  ul {
+    list-style: none;
+    @include df(normal, normal, column, 10px);
+    li {
+      padding-bottom: 10px;
+      margin: 10px 0;
+      &:not(:last-of-type) {
+        border-bottom: 1px solid #ccc;
+      }
+      a {
+        color: #ccc;
+        text-decoration: none;
+      }
+    }
+  }
+  .copy {
+    text-align: center;
+  }
+}

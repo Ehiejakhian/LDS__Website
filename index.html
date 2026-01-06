@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Intersection observer animation</title>
+  <link rel="stylesheet" href="./scss/css/main.css">
+</head>
+<body>
+  <header>
+    <h2>LDS</h2>
+    <input type="checkbox" name="nav-ch" id="nav-ch">
+    <label class="menu" for="nav-ch">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <label for="nav-ch" class="overlay"></label>
+    <nav>
+      <label for="nav-ch">×</label>
+      <ul>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Our instructors</a></li>
+        <li><a href="#">Our Vehicles</a></li>
+        <li><a href="#">Register CAC</a></li>
+        <li><a href="#">Solar Installation Services</a></li>
+        <li><a href="#">Get a Driver's License</a></li>
+      </ul>
+      <p class="copy">&copy;Copyright • LUVTOP Driving School (LDS)<br>All rights reserved</p>
+    </nav>
+    <div class="nav_more">
+      <input type="checkbox" name="nav-more" id="nav-more">
+      <label for="nav-more">
+        <span></span><span></span><span></span>
+      </label>
+      <ul class="nav_more__nav">
+        <li><a href="#">Register CAC</a></li>
+        <li><a href="#">Solar Installation Services</a></li>
+        <li><a href="#">Get a Driver's License</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <!-- <a href="https://www.vecteezy.com/free-videos/cars-driving">Cars Driving Stock Videos by Vecteezy</a> -->
+      <video autoplay muted loop playsinline poster="./images/static_road.webp" class="hero__video">
+        <source src="./images/vecteezy_car-traffic-jam-on-the-highway-cars-moving-sunset_22570963.mov" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="hero__content">
+        <span>Welcome to LUVTOP</span>
+        <h1>Learn to <span class="textstroke">DRIVE</span><br>any decent <span class="textstroke">RIDE</span></h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, a beatae aut asperiores consectetur voluptates fugit qui cupiditate omnis corporis non dolores recusandae animi adipisci ab vitae iusto. Sit.</p>
+        <a href="#">Book an appointment</a>
+      </div>
+    </section>
+    <section class="services">
+      <div class="services__manual">
+        <img src="./images/photo-1693291539335-0a289dead8e2.avif" alt="automatic car"  class="services__manual__img">
+
+        <div class="services__manual__content">
+          <h2>Train with a Manual-Gear-Shift car</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+          Consectetur explicabo tempora voluptates magnam aspernatur similique laboriosam beatae quis, excepturi sunt.</p>
+          <a href="gearCarTypes.html">What is a Manual-gear-shift car?</a>
+        </div>
+      </div>
+      <div class="services__auto">
+        <img src="./images/Driving_An_Automatic_Transmission.jpg" alt="automatic car"  class="services__auto__img">
+        <div class="services__auto__content">
+          <h2>Or with an Automatic-gear-shift car</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur explicabo tempora voluptates magnam aspernatur similique laboriosam beatae quis, excepturi sunt.</p>
+          <a href="gearCarTypes.html">What is an Automatic-gear-shift car?</a>
+        </div>
+      </div>
+    </section>
+    <section class="more">
+      <div class="more__content">
+        <p>We also do:</p>
+        <h1>Driver Licensing</h1>
+        <h1>CAC Registration</h1>
+        <p>and...</p>
+        <h1>Solar Installation</h1>
+      </div>
+      <div class="more__images">
+        <img src="./images/cac_reg.jpg" alt="cac_reg" class="more__images__cac">
+        <img src="./images/sample_driving_license.jpeg" alt="sample_driving_license" class="more__images__driving">
+        <img src="./images/solar_install.jpeg" alt="solar_install" class="more__images__solar">
+      </div>
+    </section>
+    <section class="contact">
+      <div class="contact__content">
+        <h3>Feel free to reach us</h3>
+        <form class="contact__content__form">
+          <div class="contact__content__form__name">
+            <fieldset class="entry__area">
+              <input type="text" name="name" id="name"/>
+              <legend for="name">Your Name</legend>
+            </fieldset>
+            <span class="error-message">A valid name please</span>
+          </div>
+          <div class="contact__content__form__email">
+            <fieldset class="entry__area">
+              <input type="email" name="email" id="email"/>
+              <legend for="email">Your Email</legend>
+            </fieldset>
+            <span class="error-message">This email is not valid</span>
+          </div>
+          <div class="contact__content__form__message">
+            <fieldset class="entry__area">
+              <textarea name="message" id="message" rows="5"></textarea>
+              <legend for="message">Your Message</legend>
+            </fieldset>
+            <span class="error-message">A valid message please</span>
+          </div>
+          <input type="submit" value="Submit" class="contact__content__form__submit">
+        </form>
+      </div>
+      <img src="./images/depositphotos_576545068-stock-photo-busy-busstation-lagos-nigeria-biggest.jpg" alt="contact__img" class="contact__img">
+    </section>
+  </main>
+  <footer>
+    <h1>LUVTOP</h1>
+    <p>Think safe. Drive safe</p>
+    <ul>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Our instructors</a></li>
+      <li><a href="#">Our Vehicles</a></li>
+      <li><a href="#">Register CAC</a></li>
+      <li><a href="#">Solar Installation Services</a></li>
+      <li><a href="#">Get a Driver's License</a></li>
+    </ul>
+    <p class="copy">&copy;Copyright • LUVTOP Driving School (LDS)<br>All rights reserved</p>
+  </footer>
+  
+  <script src="./scripts/main.js" type="module"></script>
+</body>
+</html>

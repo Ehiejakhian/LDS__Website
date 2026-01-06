@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OLED Control</title>
+  <style>
+    * {
+      font-size: 16px;
+      font-family: monospace;
+    }
+    fieldset {
+      border: 1px solid;
+      max-width: 300px;
+    }
+    legend {
+      font-weight: bold;
+    }
+    button {
+      font-weight: 700;
+      border: 2px solid;
+      min-width: 20%;
+      transition: all .3s;
+    }
+    button:hover {
+      background-color: #121212;
+      color: #ccc;
+      border: 2px solid #121212;
+    }
+    .iotDashboard {
+      max-width: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-flow: column;
+      padding: 30px;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    .circle {
+      border: 1px solid;
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background-color: #fff;
+      --value: 30;
+    }
+    .circle::before {
+      content: '';
+      border: 2px solid;
+      height: calc(100% + 20px);
+      width: calc(100% + 20px);
+      position: absolute;
+      border-radius: 50%;
+      z-index: -1;
+      background: conic-gradient(#00f calc(var(--value) * 1%),   #0000 0%);
+    }
+  </style>
+</head>
+<body>
+  <h2>Using ESP32 to control ESP32</h2>
+  <fieldset class="oledControl">
+    <legend>OLED Control</legend>
+    <p>
+      Click the buttons to turn on and off the OLED screen respectively:
+    </p>
+    <button onclick="location.href='/on'">ON</button>
+    <button onclick="location.href='/off'">OFF</button>
+    <button onclick="location.href='/ipadress'">Display IP</button>
+  </fieldset>
+
+  <h2>Displaying real time input in IoT dashboard</h2>
+  <fieldset class="iotDashboard">
+    <legend>ESP32 fetch</legend>
+    <h3>Fetched Value:</h3>
+    <div class="circle">
+      <h1 class="iotVal">00</h1>
+    </div>
+  </fieldset>
+  <script defer>
+    setInterval(()=>{
+      fetch('/data')
+      .then(response => response.text())
+      .then(value => {
+        console.log(value);
+        document.querySelector('.circle').style.setProperty("--value",value);
+        document.querySelector('.iotVal').innerHTML = value;
+      });
+      
+    },1000);
+  </script>
+
+
+</body></html>
