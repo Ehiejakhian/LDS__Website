@@ -7,19 +7,30 @@ window.onload = function() {
 };
 
 let more = document.querySelectorAll('.more__content>*');
+
+let services = document.querySelectorAll('.services *') 
+
+let vehicles = document.querySelectorAll('.vehicle');
+
 let observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
+    console.log(entry.target)
     if (entry.isIntersecting) {
       entry.target.classList.add('active');
     }
-    // else {
-    //   entry.target.classList.remove('active');
-    // }
   })
 }, {
-  threshold: 0.1,
+  threshold: 0.3,
 })
 
 more.forEach((item, index) => {
-  observer.observe(item)
+  observer.observe(item);
 })
+
+vehicles.forEach((item, index) => {
+  observer.observe(item);
+})
+
+// services.forEach((item, index) => {
+//   observer.observe(item);
+// })

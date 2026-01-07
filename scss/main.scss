@@ -24,6 +24,7 @@ body {
 }
 
 header {
+  background: linear-gradient(to bottom, rgba(#121212,.7), transparent);
   position: absolute;
   z-index: 2;
   top: 0;
@@ -297,7 +298,7 @@ header {
   padding: 20px 5%;
   background-image: linear-gradient(to bottom, #000 50%, #fff 50%);
   min-height: 100dvh;
-  @include df(space-between, normal, column, 10px);
+  @include df(space-between, normal, column, 50px);
   @media (min-width: $desktop) {
     @include df(space-between, center, column, 10px);
     >* {
@@ -311,6 +312,7 @@ header {
     display: grid;
     grid-template-columns: 1fr;
     gap: 25px;
+    transition: all .3s;
     img {
       display: block;
       width: 100%;
@@ -351,7 +353,7 @@ header {
   &__auto {
     &__content {
       h2 {
-        -webkit-text-fill-color: #000;
+        -webkit-text-stroke: 2px #000;
       }
     }
   }

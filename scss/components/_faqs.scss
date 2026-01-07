@@ -13,7 +13,7 @@
     @include df(center, center);
     &::before {
       content: '';
-      height: 3px;
+      height: 2px;
       width: 200%;
       max-width: 100dvw;
       background-color: #121212;
