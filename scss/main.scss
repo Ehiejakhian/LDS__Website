@@ -1,19 +1,10 @@
+@use './util/' as *;
+@use './components/' as *;
+
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Bilbo+Swash+Caps&family=Birthstone&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&display=swap');
 
-@mixin df($j:normal, $a:normal, $fl:row, $g:0){
-  display: flex;
-  justify-content: $j;
-  align-items: $a;
-  flex-flow: $fl;
-  gap: $g;
-}
 
-$mini-tab: 500px;
-$tab: 700px;
-$desktop: 1100px;
-
-
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -42,7 +33,7 @@ header {
   @include df(space-between, center, row, 10px);
   h2 {
     color: transparent;
-    -webkit-text-stroke: 1px #000;
+    -webkit-text-stroke: 1px #fff;
   }
   #nav-ch,.nav_more {
     display: none;
@@ -51,8 +42,8 @@ header {
     @include df(normal, normal, column, 2px);
     span {
       width: 25px;
-      height: 3px;
-      border: 1px solid;
+      height: 5px;
+      border: 2px solid #fff;
     }
   }
   .overlay {
@@ -138,7 +129,7 @@ header {
           padding: 0;
           border: none !important;
           a {
-            color: #121212;
+            color: #fff;
             transition: all .3s;
             @include df(normal, center, column, 5px);
             &::after {
@@ -146,7 +137,7 @@ header {
               display: block;
               width: 0%;
               height: 2px;
-              background-color: #121212;
+              background-color: #fff;
               transition: all .3s;
             }
             &:hover::after {
@@ -178,7 +169,7 @@ header {
         span {
           width: 25px;
           height: 5px;
-          border: 2px solid #121212;
+          border: 2px solid #fff;
           transition: all .3s;
         }
         &:hover {
@@ -210,9 +201,8 @@ header {
         }
         &::before {
           content:'';
-          border: 2px solid #121212;
           position: absolute;
-          border: 17px solid;
+          border: 17px solid #121212;
           border-left-color: transparent;
           border-top-color: transparent;
           top: 0;
@@ -263,11 +253,13 @@ header {
       padding-bottom: 10px;
       width: 100%;
       text-align: center;
+      color: #fff;
     }
     h1 {
       text-align: center;
       font-size: 3rem;
       margin-top: 10px;
+      color: #fff;
       .textstroke {
         color: transparent;
         -webkit-text-stroke: 1px #fff;
@@ -303,7 +295,7 @@ header {
 
 .services {
   padding: 20px 5%;
-  background-image: linear-gradient(to bottom, #000, #fff);
+  background-image: linear-gradient(to bottom, #000 50%, #fff 50%);
   min-height: 100dvh;
   @include df(space-between, normal, column, 10px);
   @media (min-width: $desktop) {
@@ -367,7 +359,6 @@ header {
 }
 
 .more {
-  border: 2px solid;
   padding: 50px 5%;
   min-height: 100dvh;
   position: relative;
@@ -424,7 +415,7 @@ header {
 
 .contact {
   min-height: 100dvh;
-  @include df(normal, normal, column, 20px);
+  @include df(center, center, column, 20px);
   &__img {
     position: absolute;
     z-index: -1;
@@ -434,16 +425,18 @@ header {
     object-fit: cover;
   }
   &__content {
-    position: absolute;
-    border: 1px solid #fff;
     color: #fff;
     padding: 20px 5%;
     height: 100%;
     background-color: #121212;
+    min-height: inherit;
     @include df(center, center, column, 10px);
     @media (min-width: $tab) {
+      border-radius: 20px;
+      min-height: auto;
       width: 50%;
       max-width: calc($tab - 100px);
+      @include df(center, center, column, 10px);
     }
     h3 {
       color: #fff;
@@ -528,6 +521,15 @@ header {
       }
     }
   }
+  &::after {
+    content:'';
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    right: 0;
+    height: 100%;
+    background-color: rgba(#121212,.7);
+  }
 }
 
 footer {
@@ -536,6 +538,9 @@ footer {
   color: #fff;
   min-height: 50dvh;
   @include df(normal, normal, column, 10px);
+  >* {
+    max-width: 375px;
+  }
   h1 {
     color: transparent;
     -webkit-text-stroke: 1px #fff;
@@ -562,5 +567,8 @@ footer {
   }
   .copy {
     text-align: center;
+    font-size: 13px;
+    color: #7a7a7a;
+    max-width: none;
   }
 }

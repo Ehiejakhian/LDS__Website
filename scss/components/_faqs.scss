@@ -1,0 +1,72 @@
+@use '../util/' as *;
+
+.faqs {
+  padding: 50px 5% 100px 5%;
+  @include df(center, center, column, 20px);
+  h2 {
+    color: transparent;
+    font-size: clamp(2rem, 5dvw, 2.5rem);
+    -webkit-text-stroke: 1px #121212;
+    position: relative;
+    background-color: #fff;
+    padding: 0 10px;
+    @include df(center, center);
+    &::before {
+      content: '';
+      height: 3px;
+      width: 200%;
+      max-width: 100dvw;
+      background-color: #121212;
+      border: 2px solid;
+      position: absolute;
+      bottom: 50%;
+      z-index: -1;
+    }
+  }
+  &__content {
+    width: 100%;
+    max-width: 700px;
+    details {
+      outline: none;
+      @include df(normal, normal, column, 10px);
+      &::marker {
+        display: none;
+      }
+      summary {
+        cursor: pointer;
+        outline: none;
+        border-bottom: 1px solid #121212;
+        list-style: none;
+        padding: 20px 0 10px 0;
+        @include df(space-between, center, row, 10px);
+        &::after {
+          content:'>';
+          font-weight: bold;
+          font-family: monospace;
+          transform: rotate(270deg);
+        }
+      }
+      p {
+        color: #4d4d4d;
+        a {
+          border-bottom: 2px solid;
+          color: inherit;
+          font-weight: 600;
+          text-decoration: none;
+          display: inline-block;
+          transition: all .3s;
+          &:hover {
+            color: #121212;
+          }
+        }
+      }
+      &:open {
+        summary {
+          &::after {
+            content: '<';
+          }
+        }
+      }
+    }
+  }
+}
