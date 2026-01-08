@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Intersection observer animation</title>
+  <title>Contact Us | LUVTOP</title>
   <link rel="stylesheet" href="./scss/css/main.css">
 </head>
 <body>
@@ -21,9 +21,9 @@
     <nav>
       <label for="nav-ch">×</label>
       <ul>
-        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./index.html">Home</a></li>
         <li><a href="./our__instructors.html">Our instructors</a></li>
-        <li><a href="./our__vehicles.html">Our Vehicles</a></li>
+        <li><a href="./find__us.html">Find us</a></li>
         <li><a href="#">Register CAC</a></li>
         <li><a href="#">Solar Installation Services</a></li>
         <li><a href="#">Get a Driver's License</a></li>
@@ -37,6 +37,7 @@
       </label>
       <label for="nav-more" class="nav_more__overlay"></label>
       <ul class="nav_more__nav">
+        <li><a href="./our__vehicles.html">Our Vehicles</a></li>
         <li><a href="#">Register CAC</a></li>
         <li><a href="#">Solar Installation Services</a></li>
         <li><a href="#">Get a Driver's License</a></li>
@@ -46,28 +47,35 @@
   <main>
     <section class="contact">
       <div class="contact__content">
-        <h3>Feel free to reach us</h3>
+        <h1>Feel free to reach us</h1>
         <form class="contact__content__form">
           <div class="contact__content__form__name">
             <fieldset class="entry__area">
-              <input type="text" name="name" id="name"/>
+              <input type="text" name="name" id="name" class="correct"/>
               <legend for="name">Your Name</legend>
             </fieldset>
-            <span class="error-message">A valid name please</span>
+            <span class="error-message__name">A valid name please</span>
           </div>
           <div class="contact__content__form__email">
             <fieldset class="entry__area">
               <input type="email" name="email" id="email"/>
               <legend for="email">Your Email</legend>
             </fieldset>
-            <span class="error-message">This email is not valid</span>
+            <span class="error-message__email">This email is not valid</span>
+          </div>
+          <div class="contact__content__form__number">
+            <fieldset class="entry__area">
+              <input type="tel" name="number" id="number" pattern="(^(((\+?234|234)[0-9]{10})|(0[0-9]{10}))$)"/>
+              <legend for="number">Phone Number</legend>
+            </fieldset>
+            <span class="error-message__phone">This number is not valid</span>
           </div>
           <div class="contact__content__form__message">
             <fieldset class="entry__area">
               <textarea name="message" id="message" rows="5"></textarea>
               <legend for="message">Your Message</legend>
             </fieldset>
-            <span class="error-message">A valid message please</span>
+            <span class="error-message__message">A valid message please</span>
           </div>
           <input type="submit" value="Submit" class="contact__content__form__submit">
         </form>
@@ -86,9 +94,10 @@
       <li><a href="#">Solar Installation Services</a></li>
       <li><a href="#">Get a Driver's License</a></li>
     </ul>
-    <p class="copy">&copy;Copyright • LUVTOP Driving School (LDS)<br>All rights reserved</p>
+    <p class="copy">&copy;2026 LUVTOP Driving School (LDS), Ekpoma, Edo, Nigeria-call 08142340182<br>All rights reserved</p>
   </footer>
   
   <script src="./scripts/main.js" type="module"></script>
+  <script src="./scripts/contact__form.js"></script>
 </body>
 </html>

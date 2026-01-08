@@ -7,6 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Intersection observer animation</title>
   <link rel="stylesheet" href="./scss/css/main.css">
+  <!-- Location Icon -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=location_away" />
 </head>
 <body>
   <header>
@@ -21,9 +23,9 @@
     <nav>
       <label for="nav-ch">×</label>
       <ul>
+        <li><a href="./index.html">Home</a></li>
         <li><a href="./contact.html">Contact</a></li>
         <li><a href="./our__instructors.html">Our instructors</a></li>
-        <li><a href="./our__vehicles.html">Our Vehicles</a></li>
         <li><a href="#">Register CAC</a></li>
         <li><a href="#">Solar Installation Services</a></li>
         <li><a href="#">Get a Driver's License</a></li>
@@ -37,6 +39,7 @@
       </label>
       <label for="nav-more" class="nav_more__overlay"></label>
       <ul class="nav_more__nav">
+        <li><a href="./our__vehicles.html">Our Vehicles</a></li>
         <li><a href="#">Register CAC</a></li>
         <li><a href="#">Solar Installation Services</a></li>
         <li><a href="#">Get a Driver's License</a></li>
@@ -45,15 +48,19 @@
   </header>
   <main>
     <section class="findUs">
-      <img src="./images/image.png" alt="findUs__bg" class="findUs__bg">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/010/801/642/small/aerial-clean-top-view-of-the-night-time-city-map-with-street-and-river-001-vector.jpg" alt="findUs__bg" class="findUs__bg">
       <div class="findUs__content">
-        <img src="#" alt="Q" class="findUs__content__locationImg">
-        <fieldset class="findUs__content__fieldset">
-          <legend><h2>Find us</h2></legend>
-        </fieldset>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores facere cupiditate vero, recusandae impedit aspernatur dolor tempora, doloremque sequi illum perspiciatis nesciunt dolores!</p>
-        <a href="#">Via Google Maps</a>
-        <a href="#">Contact Us on Whatsapp</a>
+        <div class="findUs__content__text">
+          <fieldset class="findUs__content__text__fieldset">
+            <legend><h2><span class="material-symbols-outlined">location_away</span>Find us</h2></legend>
+          </fieldset>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores facere cupiditate vero, recusandae impedit aspernatur dolor tempora, doloremque sequi illum perspiciatis nesciunt dolores!</p>
+          <a href="#">Via Google Maps</a>
+          <a href="#">Contact Us on Whatsapp</a>
+        </div>
+        <div class="findUs__content__iframeContainer">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d552.0280686084468!2d6.1498928!3d6.7429793!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1046958b58fa2d9b%3A0xd93d54fbd6793c74!2sLUVTOP%20DRIVING%20SCHOOL!5e1!3m2!1sen!2sng!4v1767893777509!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Embedded Map link to our (LDS) location on G-maps"></iframe>
+        </div>
       </div>
     </section>
     <section class="faqs">
