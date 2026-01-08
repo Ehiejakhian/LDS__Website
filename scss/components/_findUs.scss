@@ -1,0 +1,87 @@
+@use '../util/' as *;
+
+.findUs {
+  position: relative;
+  overflow: hidden;
+  padding: 50px 5%;
+  min-height: 50dvh;
+  border: 2px solid;
+  @include df(center, center, column, 0);
+  &__bg {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__content {
+    padding: 20px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    color: #fff;
+    @include df(center, center, column, 10px);
+    @include hero__a();
+    >a {
+      background: rgba(#ccc, .4);
+    }
+    &__locationImg {
+      border: 1px solid;
+    }
+    &__fieldset {
+      width: 100%;
+      border: none;
+      border-top: 2px solid #fff;
+      max-width: 500px;
+      @media (max-width: ($mini-tab + 100px)) {
+        max-width: 300px;
+      }
+      legend {
+        padding: 10px;
+        h2 {
+          line-height: 1;
+          font-size: clamp(2rem, 5dvw, 2.5rem);
+          position: relative;
+          //background-color: #fff;
+          padding: 0 10px;
+          -webkit-text-stroke: 1px #fff;
+          color: transparent;
+          align-self: center;
+        }
+      }
+    }
+    &::after {
+      content:'';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to bottom, #121212, transparent);
+      z-index: -1;
+    }
+  }
+  @media (min-width: $tab) {
+    min-height: 70dvh;
+    &__content {
+      padding: 0;
+      text-align: left;
+      @include df(center, start, column, 10px);
+      >* {
+        max-width: 400px;
+        margin-left: 5%;
+      }
+      &__fieldset {
+        border: none;
+        padding: 0;
+        legend {
+          border-bottom: 1px solid;
+          padding: 0 200px 10px 0;
+          h2 {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}

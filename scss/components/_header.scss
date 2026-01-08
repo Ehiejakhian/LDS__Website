@@ -1,0 +1,220 @@
+@use '../util/' as *;
+
+header {
+  background: linear-gradient(to bottom, rgba(#121212,.7), transparent);
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 20px 5%;
+  @include df(space-between, center, row, 10px);
+  h2 {
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+  }
+  #nav-ch,.nav_more {
+    display: none;
+  }
+  .menu {
+    @include df(normal, normal, column, 2px);
+    span {
+      width: 25px;
+      height: 5px;
+      border: 2px solid #fff;
+    }
+  }
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0,0,0,.4);
+    transition: all .3s;
+  }
+  nav {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    width: 70dvw;
+    height: 100dvh;
+    padding: 10px 5%;
+    transition: all .3s;
+    background-color: #000;
+    
+    color: #ccc;
+    @include df(normal, normal, column, 10px);
+    label {
+      color: transparent;
+      -webkit-text-stroke: 1px #ccc;
+      font-size: 3rem;
+      align-self: end;
+      line-height: 1;
+    }
+    ul {
+      list-style: none;
+      @include df(normal, normal, column, 10px);
+      li {
+        padding-bottom: 10px;
+        margin: 10px 0;
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #ccc;
+        }
+        a {
+          color: #ccc;
+          text-decoration: none;
+        }
+      }
+    }
+    .copy {
+      margin-top: auto;
+      align-self: end;
+      text-align: center;
+    }
+  }
+  #nav-ch:checked {
+    & ~ nav {
+      right: 0%;
+    }
+    & ~ .overlay {
+      display: block;
+    }
+  }
+  @media (min-width: $tab) {
+    .menu {
+      display: none;
+    }
+    nav {
+      position: static;
+      height: auto;
+      width: auto;
+      background-color: transparent;
+      flex-flow: row;
+      padding: 0;
+      color: #000;
+      label {
+        display: none;
+      }
+      ul {
+        flex-flow: row;
+        li {
+          margin: 0 10px;
+          padding: 0;
+          border: none !important;
+          a {
+            color: #fff;
+            transition: all .3s;
+            @include df(normal, center, column, 5px);
+            &::after {
+              content:'';
+              display: block;
+              width: 0%;
+              height: 2px;
+              background-color: #fff;
+              transition: all .3s;
+            }
+            &:hover::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .copy {
+        display: none;
+      }
+    }
+  }
+  @media (min-width: $tab) and (max-width: $desktop) {
+    nav ul li {
+      &:nth-child(4),&:nth-child(5),&:nth-child(6) {
+        display: none;
+      }
+    }
+    .nav_more {
+      display: block;
+      position: relative;
+      #nav-more {
+        display: none;
+      }
+      &__menu {
+        transition: all .3s;
+        @include df(normal, normal, column, 3px);
+        span {
+          width: 25px;
+          height: 5px;
+          border: 2px solid #fff;
+          transition: all .3s;
+        }
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+      &__overlay {
+        border: 1px solid;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        // background: rgba(#ff9100, .2);
+        z-index: -5;
+        display: none;
+      }
+      ul {
+        padding: 20px;
+        position: absolute;
+        width: 250px;
+        right: 0;
+        top: calc(110% + 40px);
+        list-style-type: none;
+        transition: all .3s;
+        background-color: #121212;
+        @include df(normal, normal, column, 10px);
+        z-index: -1;
+        opacity: 0;
+        li {
+          a {
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+            color: #ccc;
+            transition: all .3s;
+            &:hover {
+              transform: scale(1.05);
+            }
+          }
+        }
+        &::before {
+          content:'';
+          position: absolute;
+          border: 17px solid #121212;
+          border-left-color: transparent;
+          border-top-color: transparent;
+          top: 0;
+          right: 0;
+          transform: translateY(-100%);
+        }
+      }
+      #nav-more:checked {
+        & ~ .nav_more__menu {
+          span {
+            background-color: #121212;
+            border-color: #121212;
+          }
+        }
+        & ~ .nav_more__overlay {
+          display: block;
+        }
+        & ~ ul {
+          z-index: 3;
+          opacity: 1;
+        }
+      }
+    }
+
+  }
+}

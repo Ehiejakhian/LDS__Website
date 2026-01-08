@@ -38,3 +38,19 @@ $desktop: 1100px;
     }
   }
 }
+
+@mixin hero__a($c:#fff, $b_c: #ccc, $bg:#121212, $hover_color: #fff) {
+  a {
+    text-decoration: none;
+    color: $c;
+    border: 1px solid $b_c;
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin-top: 10px;
+    transition: all .3s;
+    &:hover {
+      background-color: rgba(#121212,.8);
+      color: $hover_color;
+    }
+  }
+}

@@ -3,30 +3,7 @@
 .instructors {
   padding: 5rem 0;
   @include df(center, normal, column, 2rem);
-  h2 {
-    line-height: 1;
-    font-size: clamp(2rem, 5dvw, 2.5rem);
-    position: relative;
-    background-color: #fff;
-    padding: 0 10px;
-    -webkit-text-stroke: 1px #121212;
-    color: transparent;
-    align-self: center;
-    @include df(center, center);
-    &::before {
-      content: '';
-      height: 2px;
-      width: 200%;
-      background-color: #121212;
-      border: 1px solid;
-      position: absolute;
-      bottom: 50%;
-      z-index: -1;
-      @media (max-width: 400px) {
-        max-width: calc(375px);
-      }
-    }
-  }
+  @include h2;
   &__content {
     margin-top: 3rem;
     padding: 0 5%;
