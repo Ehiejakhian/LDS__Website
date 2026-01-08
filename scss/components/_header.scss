@@ -66,8 +66,14 @@ header {
           border-bottom: 1px solid #ccc;
         }
         a {
+          display: inline-block;
+          width: 100%;
           color: #ccc;
           text-decoration: none;
+          transition: all .3s;
+          &:hover {
+            color: goldenrod;
+          }
         }
       }
     }

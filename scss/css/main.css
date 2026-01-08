@@ -84,8 +84,14 @@ header nav ul li:not(:last-of-type) {
   border-bottom: 1px solid #ccc;
 }
 header nav ul li a {
+  display: inline-block;
+  width: 100%;
   color: #ccc;
   text-decoration: none;
+  transition: all 0.3s;
+}
+header nav ul li a:hover {
+  color: goldenrod;
 }
 header nav .copy {
   margin-top: auto;
