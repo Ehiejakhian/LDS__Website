@@ -1,128 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Intersection observer animation</title>
-  <link rel="stylesheet" href="./scss/css/main.css">
-</head>
-<body>
-  <header>
-    <h2>LDS</h2>
-    <input type="checkbox" name="nav-ch" id="nav-ch">
-    <label class="menu" for="nav-ch">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-    <label for="nav-ch" class="overlay"></label>
-    <nav>
-      <label for="nav-ch">×</label>
-      <ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Intersection observer animation</title>
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./scss/css/main.css"/>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="./assets/fontawesome/css/font-awesome.css"/>
+  </head>
+  <body>
+    <header>
+      <h2>LUVTOP</h2>
+      <input type="checkbox" name="nav-ch" id="nav-ch" />
+      <label class="menu" for="nav-ch">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <label for="nav-ch" class="overlay"></label>
+      <nav>
+        <label for="nav-ch">×</label>
+        <ul>
+          <li><a href="./pages/contact.html">Contact</a></li>
+          <li><a href="./pages/our__instructors.html">Our instructors</a></li>
+          <li><a href="./pages/our__vehicles.html">Our Vehicles</a></li>
+          <li><a href="#">Register CAC</a></li>
+          <li><a href="#">Solar Installation Services</a></li>
+          <li><a href="#">Get a Driver's License</a></li>
+        </ul>
+        <p class="copy">
+          &copy;Copyright • LUVTOP Driving School (LDS)<br />All rights reserved
+        </p>
+      </nav>
+      <div class="nav_more">
+        <input type="checkbox" name="nav-more" id="nav-more" />
+        <label for="nav-more" class="nav_more__menu">
+          <span></span><span></span><span></span>
+        </label>
+        <label for="nav-more" class="nav_more__overlay"></label>
+        <ul class="nav_more__nav">
+          <li><a href="#">Register CAC</a></li>
+          <li><a href="#">Solar Installation Services</a></li>
+          <li><a href="#">Get a Driver's License</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <!-- <a href="https://www.vecteezy.com/free-videos/cars-driving">Cars Driving Stock Videos by Vecteezy</a> -->
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="./images/static_road.webp"
+          class="hero__video"
+        >
+          <source src="./images/hero__vid__bg.mov" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="hero__content">
+          <span>Welcome to LUVTOP</span>
+          <h1>
+            Learn to <span class="textstroke">DRIVE</span><br />any decent
+            <span class="textstroke">RIDE</span>
+          </h1>
+          <p>
+            Join LUVTOP Driving School today and embark on a journey to become
+            a confident and skilled driver. Our expert instructors are here to
+            guide you every step of the way.
+          </p>
+          <a href="./contact.html">Explore Our Services</a>
+          <a href="./find__us.html">Find Us</a>
+        </div>
+      </section>
+
+      <!-- ACHIEVEMENTS -->
+      <section class="achievements">
+        <div class="achievements__content">
+          <div class="achievements__content__item">
+            <i class="fa fa-smile-o"></i>
+            <div>
+              <h2>50+</h2>
+              <p>Happy Students</p>
+            </div>
+          </div>
+          <div class="achievements__content__item">
+            <i class="fa fa-car"></i>
+            <div>
+              <h2>2</h2>
+              <p>Professional Instructors</p>
+            </div>
+          </div>
+          <div class="achievements__content__item">
+            <i class="fa fa-check-circle"></i>
+            <div>
+              <h2>95%</h2>
+              <p>Pass Rate</p>
+            </div>
+          </div>
+          <div class="achievements__content__item">
+            <i class="fa fas fa-magic"></i>
+            <div>
+              <h2>30+</h2>
+              <p>Various Training Equipment</p>
+            </div>
+          </div>
+          <div class="achievements__content__item">
+            <i class="fa fa-car"></i>
+            <div>
+              <h2>2</h2>
+              <p>Cars in good condition</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="services">
+        <div class="services__manual">
+          <img
+            src="./images/photo-1693291539335-0a289dead8e2.avif"
+            alt="automatic car"
+            class="services__manual__img"
+          />
+
+          <div class="services__manual__content">
+            <h2>Train with a Manual-Gear-Shift car</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Consectetur explicabo tempora voluptates magnam aspernatur
+              similique laboriosam beatae quis, excepturi sunt.
+            </p>
+            <a href="gearCarTypes.html">What is a Manual-gear-shift car?</a>
+          </div>
+        </div>
+        <div class="services__auto">
+          <img
+            src="./images/Driving_An_Automatic_Transmission.jpg"
+            alt="automatic car"
+            class="services__auto__img"
+          />
+          <div class="services__auto__content">
+            <h2>Or with an Automatic-gear-shift car</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Consectetur explicabo tempora voluptates magnam aspernatur
+              similique laboriosam beatae quis, excepturi sunt.
+            </p>
+            <a href="gearCarTypes.html">What is an Automatic-gear-shift car?</a>
+          </div>
+        </div>
+      </section>
+      <!-- REVIEWS -->
+      <section class="reviews">
+        <h2>What our students say about us</h2>
+        <div class="reviews__content">
+          <div class="reviews__content__item">
+            <p>
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+             quam, quidem."
+            </p>
+            <h3>- John Doe</h3>
+          </div>
+          <div class="reviews__content__item">
+            <p>
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+             quam, quidem."
+            </p>
+            <h3>- Jane Smith</h3>
+          </div>
+          <div class="reviews__content__item">
+            <p>
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+             quam, quidem."
+            </p>
+            <h3>- Michael Johnson</h3>
+          </div>
+        </div>
+        <a href="./pages/aboutUs.html" class="reviews__about-us-btn">See More About us »</a>
+      </section>
+
+      <!-- MORE -->
+      <section class="more">
+        <h2>We also do ...</h2>
+        <div class="more__content">
+          <div class="more__content__card">
+            <img src="./images/image.png" alt="img"/>
+            <div class="more__content__card__info">
+              <h3>Driver Licensing</h3>
+              <a href="#">Learn More</a>
+            </div>
+          </div>
+          <div class="more__content__card">
+            <img src="./images/image.png" alt="img"/>
+            <div class="more__content__card__info">
+              <h3>CAC Registration</h3>
+              <a href="#">Interested?</a>
+            </div>
+          </div>
+          <div class="more__content__card">
+            <img src="./images/image.png" alt="img"/>
+            <div class="more__content__card__info">
+              <h3>Car Tracking</h3>
+              <a href="#">Let's Start!</a>
+            </div>
+          </div>
+          <div class="more__content__card">
+            <img src="./images/image.png" alt="img"/>
+            <div class="more__content__card__info">
+              <h3>Vehicle Documentation</h3>
+              <a href="#">Learn More</a>
+            </div>
+          </div>
+          <div class="more__content__card">
+            <img src="./images/image.png" alt="img"/>
+            <div class="more__content__card__info">
+              <h3>Car Dashboard Installation</h3>
+              <a href="#">Interested?</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQS -->
+      <section class="faqs">
+        <h2>FAQs</h2>
+        <div class="faqs__content">
+          <details name="details" open>
+            <summary><span>Where are you?</span></summary>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+              neque tempora quis error eligendi? Explicabo quaerat dolor totam
+              quibusdam dolorum optio aliquid cumque.
+            </p>
+          </details>
+          <details name="details">
+            <summary><span>How old is your Institution?</span></summary>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+              neque tempora quis error eligendi? Explicabo quaerat dolor totam
+              quibusdam dolorum optio aliquid cumque.
+            </p>
+          </details>
+          <details name="details">
+            <summary><span>How much does it cost to learn.</span></summary>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+              neque tempora quis error eligendi? Explicabo quaerat dolor totam
+              <a href="#">quibusdam</a> dolorum optio aliquid cumque.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <h1>LUVTOP</h1>
+      <p>Think safe. Drive safe</p>
+      <ul class="useful__links">
+        <li>Useful Links</li>
         <li><a href="./contact.html">Contact</a></li>
         <li><a href="./our__instructors.html">Our instructors</a></li>
         <li><a href="./our__vehicles.html">Our Vehicles</a></li>
+        <li><a href="./find__us.html">Find Us</a></li>
         <li><a href="#">Register CAC</a></li>
         <li><a href="#">Solar Installation Services</a></li>
         <li><a href="#">Get a Driver's License</a></li>
       </ul>
-      <p class="copy">&copy;Copyright • LUVTOP Driving School (LDS)<br>All rights reserved</p>
-    </nav>
-    <div class="nav_more">
-      <input type="checkbox" name="nav-more" id="nav-more">
-      <label for="nav-more" class="nav_more__menu">
-        <span></span><span></span><span></span>
-      </label>
-      <label for="nav-more" class="nav_more__overlay"></label>
-      <ul class="nav_more__nav">
-        <li><a href="#">Register CAC</a></li>
-        <li><a href="#">Solar Installation Services</a></li>
-        <li><a href="#">Get a Driver's License</a></li>
-      </ul>
-    </div>
-  </header>
-  <main>
-    <section class="hero">
-      <!-- <a href="https://www.vecteezy.com/free-videos/cars-driving">Cars Driving Stock Videos by Vecteezy</a> -->
-      <video autoplay muted loop playsinline poster="./images/static_road.webp" class="hero__video">
-        <source src="./images/hero__vid__bg.mov" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="hero__content">
-        <span>Welcome to LUVTOP</span>
-        <h1>Learn to <span class="textstroke">DRIVE</span><br>any decent <span class="textstroke">RIDE</span></h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, a beatae aut asperiores consectetur voluptates fugit qui cupiditate omnis corporis non dolores recusandae animi adipisci ab vitae iusto. Sit.</p>
-        <a href="#">Book an appointment</a>
-        <a href="./find__us.html">Find Us</a>
-      </div>
-    </section>
-    <section class="services">
-      <div class="services__manual">
-        <img src="./images/photo-1693291539335-0a289dead8e2.avif" alt="automatic car"  class="services__manual__img">
+      <ul class="social__links">
+        <li>
+          <a href="#" class="facebook">
+            <i class="fa fa-facebook-f"></i>
+          </a>
+        </li>
 
-        <div class="services__manual__content">
-          <h2>Train with a Manual-Gear-Shift car</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-          Consectetur explicabo tempora voluptates magnam aspernatur similique laboriosam beatae quis, excepturi sunt.</p>
-          <a href="gearCarTypes.html">What is a Manual-gear-shift car?</a>
-        </div>
-      </div>
-      <div class="services__auto">
-        <img src="./images/Driving_An_Automatic_Transmission.jpg" alt="automatic car"  class="services__auto__img">
-        <div class="services__auto__content">
-          <h2>Or with an Automatic-gear-shift car</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur explicabo tempora voluptates magnam aspernatur similique laboriosam beatae quis, excepturi sunt.</p>
-          <a href="gearCarTypes.html">What is an Automatic-gear-shift car?</a>
-        </div>
-      </div>
-    </section>
-    <section class="more">
-      <div class="more__content">
-        <p>We also do:</p>
-        <h1>Driver Licensing</h1>
-        <h1>CAC Registration</h1>
-        <p>and...</p>
-        <h1>Solar Installation</h1>
-      </div>
-      <div class="more__images">
-        <img src="./images/cac_reg.jpg" alt="cac_reg" class="more__images__cac">
-        <img src="./images/sample_driving_license.jpeg" alt="sample_driving_license" class="more__images__driving">
-        <img src="./images/solar_install.jpeg" alt="solar_install" class="more__images__solar">
-      </div>
-    </section>
-    <section class="faqs">
-      <h2>FAQs</h2>
-      <div class="faqs__content">
-        <details>
-          <summary>Where are you?</summary>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur neque tempora quis error eligendi? Explicabo quaerat dolor totam quibusdam dolorum optio aliquid cumque.</p>
-        </details>
-        <details>
-          <summary>How old is your Institution?</summary>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur neque tempora quis error eligendi? Explicabo quaerat dolor totam quibusdam dolorum optio aliquid cumque.</p>
-        </details>
-        <details>
-          <summary>How much does it cost to learn.</summary>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur neque tempora quis error eligendi? Explicabo quaerat dolor totam <a href="#">quibusdam</a> dolorum optio aliquid cumque.</p>
-        </details>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <h1>LUVTOP</h1>
-    <p>Think safe. Drive safe</p>
-    <ul>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Our instructors</a></li>
-      <li><a href="#">Our Vehicles</a></li>
-      <li><a href="#">Register CAC</a></li>
-      <li><a href="#">Solar Installation Services</a></li>
-      <li><a href="#">Get a Driver's License</a></li>
-    </ul>
-    <p class="copy">&copy;Copyright • LUVTOP Driving School (LDS)<br>All rights reserved</p>
-  </footer>
-  
-  <script src="./scripts/main.js" type="module"></script>
-</body>
+        <li>
+          <a href="#" class="instagram">
+            <i class="fa fa-instagram"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="twitter">
+            <i class="fa fa-twitter"></i></a>
+        </li>
+      </ul>
+      <p class="copy">
+        &copy;Copyright • LUVTOP Driving School (LDS)<br />All rights reserved
+      </p>
+    </footer>
+
+    <script src="./scripts/main.js" type="module"></script>
+  </body>
 </html>

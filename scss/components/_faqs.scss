@@ -26,27 +26,47 @@
   &__content {
     width: 100%;
     max-width: 700px;
+    @include df(normal, normal, column, 5px);
     details {
       outline: none;
-      @include df(normal, normal, column, 10px);
+      transition: all 1s;
+      @include df(normal, normal, column, 0);
       &::marker {
         display: none;
       }
       summary {
         cursor: pointer;
         outline: none;
-        border-bottom: 1px solid #121212;
+        border: 2px solid #121212;
         list-style: none;
-        padding: 20px 0 10px 0;
+        background:  rgba(#ccc, .3);
         @include df(space-between, center, row, 10px);
+        >* {
+          padding: 10px 15px;
+        }
         &::after {
-          content:'>';
-          font-weight: bold;
-          font-family: monospace;
-          transform: rotate(270deg);
+          content:'+';
+          border-left: 1px solid;
+          font-size: 1.5rem;
+          height: 100%;
+          width: 50px;
+          transition: all .3s;
+          @include df(center,center);
+        }
+      }
+      &::details-content {
+        height: 0;
+        transition: all 1s;
+      }
+      &[open] {
+        &::details-content {
+          height: auto;
         }
       }
       p {
+        border: 1px solid #121212;
+        border-top: none;
+        padding: 15px;
         color: #4d4d4d;
         a {
           border-bottom: 2px solid;
@@ -63,7 +83,7 @@
       &:open {
         summary {
           &::after {
-            content: '<';
+            content: '-';
           }
         }
       }

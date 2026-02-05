@@ -1,0 +1,20 @@
+@use '../util/' as *;
+
+.thanks {
+  padding: 100px var(--side-padding);
+  min-height: 80dvh;
+  text-align: center;
+  @include df(center, center, column, 10px);
+  h2 {
+    @include heading(var(--text), var(--bg));
+  }
+  h1 {
+    color: var(--text);
+  }
+  p {
+    font-size: 18px;
+  }
+  &__backbtn {
+    @include btn(var(--text), var(--bg));
+  }
+}

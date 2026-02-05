@@ -1,30 +1,6 @@
 @use './util/' as *;
 @use './components/' as *;
 
-@import url('https://fonts.googleapis.com/css2?family=Alata&family=Bilbo+Swash+Caps&family=Birthstone&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&display=swap');
-
-
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'outfit';
-}
-body {
-  font-size: 1rem;
-  // @media (min-width: $tab) {
-  //   font-size: 18px;
-  // }
-  // @media (min-width: $desktop) {
-  //   font-size: 20px;
-  // }
-  img {
-    display: block;
-  }
-}
-
-
-
 .hero {
   height: 100dvh;
   background-image: linear-gradient(to bottom, #fff, #000);
@@ -82,7 +58,7 @@ body {
 }
 
 .services {
-  padding: 20px 5%;
+  padding: 20px var(--side-padding);
   background-image: linear-gradient(to bottom, #000 50%, #fff 50%);
   min-height: 100dvh;
   @include df(space-between, normal, column, 50px);
@@ -147,67 +123,13 @@ body {
   
 }
 
-.more {
-  padding: 50px 5%;
-  min-height: 100dvh;
-  position: relative;
-  @include df(normal, normal, column-reverse, 50px);
-  @media (min-width: $tab) {
-    @include df(normal, center, row, 50px);
-  }
-  &__content {
-    @include df(center, normal, column, 30px);
-    h1 {
-      font-size: clamp(2.7rem, 5dvw, 3rem);
-      text-transform: uppercase;
-    }
-    >* {
-      opacity: 0;
-      transform: translateY(100px);
-      transition: all .3s;
-      transition-delay: .5s;
-      &.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  }
-  &__images {
-    // @for ($i = 1;;$i++) {}
-    display: grid;
-    grid-template-columns: repeat(2, minmax(100px, 1fr));
-    gap: 10px;
-    grid-template-areas:
-      "c d "
-      "c d "
-      "c s "
-      "c s "
-    ;
-    >* {
-      display: block;
-      width: 100%;
-      height: 100%;
-      border: 2px solid #121212;
-      border-radius: 10px;
-    }
-    &__cac {
-      grid-area: c;
-    }
-    &__driving {
-      grid-area: d;
-    }
-    &__solar {
-      grid-area: s;
-    }
-  }
-}
 
 footer {
   padding: 20px 5%;
   background-color: #000;
   color: #fff;
   min-height: 50dvh;
-  @include df(normal, normal, column, 10px);
+  @include df(center, center, column, 10px);
   >* {
     max-width: 375px;
   }
@@ -220,20 +142,73 @@ footer {
     font-style: italic;
     margin-bottom: 10px;
   }
-  ul {
+  .useful__links {
+    margin-top: 20px;
     list-style: none;
-    @include df(normal, normal, column, 10px);
+    @include df(center, center, column, 25px);
     li {
-      padding-bottom: 10px;
-      margin: 10px 0;
-      &:not(:last-of-type) {
-        border-bottom: 1px solid #ccc;
+      text-align: center;
+      &:first-child {
+        width: 100%;
+        min-width: 150px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid;
+        color: grey;
       }
       a {
         color: #ccc;
         text-decoration: none;
+        transition: all .3s;
+        &:hover {
+          color: goldenrod;
+          transform: scale(1.05);
+        }
       }
     }
+  }
+  .social__links {
+    margin: 40px 0;
+    list-style: none;
+    @include df(center, center, row, 15px);
+    li {
+      a {
+        background: rgba(#222121, .5);
+        display: block;
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        border-radius: 50%;
+        border: 1px solid;
+        @include df(center, center);
+        text-decoration: none;
+        font-weight: 700;
+        transition: all .3s;
+        color: #fff;
+        i {
+          color: inherit;
+          font-size: 1.5rem;
+        }
+        &.facebook {
+          &:hover {
+            background: rgba(blue, .3);
+            color: blue;
+          }
+        }
+        &.instagram {
+          &:hover {
+            background: rgba(crimson, .4);
+            color: crimson;
+          }
+        }
+        &.twitter {
+          &:hover {
+            background: rgba(dodgerblue, .4);
+            color: dodgerblue;
+          }
+        }
+      }
+    }
+
   }
   .copy {
     text-align: center;
@@ -242,5 +217,36 @@ footer {
     max-width: none;
     border-top: 1px solid;
     padding-top: 10px;
+    margin: 30px 0 10px 0;
+  }
+  @media (min-width: $tab) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+      "h . ."
+      "m . s"
+      "u . s"
+      "c c c"
+    ;
+    h1 {
+      grid-area: h;
+    }
+    p:first-of-type {
+      grid-area: m;
+    }
+    .useful__links {
+      grid-area: u;
+      @include df(normal, start, column, 20px);
+      >* {
+        text-align: left !important;
+      }
+    }
+    .social__links {
+      grid-area: s;
+      justify-content: right;
+    }
+    .copy {
+      grid-area: c;
+    }
   }
 }

@@ -1,0 +1,49 @@
+@use '../util/' as *;
+
+.reviews {
+  padding: 40px var(--side-padding);
+  min-height: 50dvh;
+  background-color: var(--text);
+  color: var(--bg);
+  @include df(center, normal, column, 30px);
+  h2 {
+    @include heading;
+  }
+  
+  &__content {
+    @include df(center, center, row wrap, 20px);
+    &__item {
+      max-width: 300px;
+      padding: clamp(20px, 4dvw, 30px);
+      flex: 1 1 calc(33.33% - 40px);
+      min-width: 250px;
+      max-width: 400px;
+      text-align: center;
+      @include df(center, center, column, 10px);
+      &:not(:first-of-type, :last-of-type) {
+        border-right: 1px solid var(--bg);
+        border-left: 1px solid var(--bg);
+      }
+      p {
+        font-style: italic;
+        padding-bottom: 10px;
+        &::after {
+          content: '';
+          width: 100px;
+          height: 2px;
+          background-color: var(--bg);
+        }
+      }
+      h2 {
+        font-size: clamp(2rem, 4dvw, 3rem);
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__about-us-btn {
+    @include btn;
+    & {
+      align-self: center;
+    }
+  }
+}

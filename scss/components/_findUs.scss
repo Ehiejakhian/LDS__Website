@@ -4,7 +4,6 @@
   position: relative;
   padding: 50px 5%;
   min-height: 50dvh;
-  border: 2px solid;
   @include df(center, center, column, 0);
   &::after {
     content:'';

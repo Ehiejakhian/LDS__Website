@@ -1,39 +1,79 @@
 @use '../util/' as *;
 
 .contact {
-  min-height: 100dvh;
+  min-height: calc(100dvh - 100px);
   @include df(center, center, column, 20px);
-  &__img {
-    position: absolute;
-    z-index: -1;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
   &__content {
-    color: #fff;
-    padding: clamp(20px, 5dvw, 40px);
+    color: #121212;
+    padding: 50px var(--side-padding);
     height: 100%;
-    background-color: #121212;
+    background-color: #fff;
     min-height: inherit;
     @include df(center, center, column, 10px);
     @media (min-width: $tab) {
       min-height: auto;
-      width: 50%;
-      max-width: calc($tab - 100px);
+      width: 100%;
       @include df(center, center, column, 10px);
+      >* {
+        max-width: 500px;
+      }
     }
     h1 {
-      color: #fff;
-      text-transform: uppercase;
-      font-size: 2rem;
-      margin-bottom: 20px;
+      -webkit-text-stroke: 2px #121212;
+      border: 2px solid #121212;
+      color: transparent;
       text-align: center;
+      text-transform: uppercase;
+      & {
+        width: 100%;
+        font-size: 2rem;
+        max-width: 500px;
+      }
+    }
+    p {
+      text-align: center;
+      margin: 0 0 20px 0;
+      color: #121212;
+    }
+    [name*=contact__type] {
+      display: none;
+    }
+    .contact__type__selection {
+      border: 1px solid;
+      margin-bottom: 50px;
+      width: 100%;
+      @include df(normal, normal, row, 0);
+      label {
+        flex: 1;
+        cursor: pointer;
+        padding: 10px;
+        border: 1px solid;
+        transition: all .3s;
+        @include df(center, center);
+        i {
+          font-size: 25px;
+        }
+        &.selected {
+          background: #121212;
+          color: #fff;
+          border: 1px solid #121212;
+        }
+      }
     }
     &__form {
       width: 100%;
-      @include df(normal, normal, column, 20px);
+      display: none;
+      &.selected {
+        @include df(normal, normal, column, 20px);
+      }
+      &:first-of-type {
+        a {
+          & {
+            align-self: center;
+            @include df(center, center, row, 10px);
+          }
+        }
+      }
 
       > div {
         @include df(normal, normal, column, 10px);
@@ -45,27 +85,32 @@
           legend {
             padding: 0 10px;
             font-size: 14px;
-            color: #ccc;
+            color: #121212;
             position: absolute;
             top: -10px;
             left: 10px;
-            background-color: #121212;
+            background-color: #fff;
             transition: all .3s;
           }
         }
         input,textarea {
+          font-family: 'outfit';
           width: 100%;
-          color: #fff;
+          color: #121212;
           display: block;
-          padding: 15px 20px;
+          padding: 20px;
           border: none;
           font-weight: 700;
-          border: 1px solid #ccc;
-          background-color: #121212;
+          border: 1px solid;
+          background-color: #fff;
           font-size: 16px;
-          border-radius: 5px;
           transition: all .3s;
           outline: none;
+          border,
+          &::placeholder {
+            color: rgba(#4b4a4a, .6);
+            font-family: inherit;
+          }
         }
         /* Target the autofill background */
         input:-webkit-autofill,
@@ -74,15 +119,15 @@
         textarea:-webkit-autofill,
         textarea:-webkit-autofill:hover,
         textarea:-webkit-autofill:focus {
-          -webkit-box-shadow: 0 0 0px 1000px #121212 inset !important;
-          -webkit-text-fill-color: #fff !important;
+          -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+          -webkit-text-fill-color: #121212 !important;
         }
 
         input:-moz-autofill,
         input:-moz-autofill:hover,
         input:-moz-autofill:focus {
           background-color: transparent !important;
-          -webkit-text-fill-color: #fff !important;
+          -webkit-text-fill-color: #121212 !important;
         }
 
 
@@ -101,6 +146,7 @@
             text-align: center;
             font-weight: 700;
             font-style: normal;
+            @include df(center, center);
           }
         }
         &.correct {
@@ -123,29 +169,24 @@
           }
         }
       }
-      &__submit {
-        padding: 10px 20px;
-        border: 1px solid #ccc;
-        background-color: #121212;
-        font-weight: 700;
+      &__submit, a.call__submit__link {
+        font: inherit;
+        letter-spacing: 2px;
+        border: 2px solid #121212;
+        background: #121212;
         color: #fff;
-        border-radius: 30px;
+        padding: 15px 30px;
         cursor: pointer;
+        text-decoration: none;
         transition: all .3s;
+        text-transform: uppercase;
+        font-weight: bold;
         &:hover {
-          background-color: #3d3c3c;
+          background: rgba(#121212, .9);
+          border: 2px solid rgba(#121212, .9);
         }
       }
     }
-  }
-  &::after {
-    content:'';
-    position: absolute;
-    width: 100%;
-    z-index: -1;
-    right: 0;
-    height: 100%;
-    background-color: rgba(#121212,.7);
   }
 }
 

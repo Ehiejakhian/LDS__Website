@@ -8,10 +8,6 @@
   gap: $g;
 }
 
-$mini-tab: 500px;
-$tab: 700px;
-$desktop: 1100px;
-
 @mixin h2 {
   h2 {
     line-height: 1;
@@ -27,6 +23,7 @@ $desktop: 1100px;
       content: '';
       height: 2px;
       width: 200%;
+      max-width: calc(70dvw);
       background-color: #121212;
       border: 1px solid;
       position: absolute;
@@ -51,6 +48,49 @@ $desktop: 1100px;
     &:hover {
       background-color: rgba(#121212,.8);
       color: $hover_color;
+    }
+  }
+}
+
+/**---New Mixins---**/
+@mixin btn($c:#ccc, $bg:#121212) {
+  text-decoration: none;
+  color: $c;
+  border: 1px solid;
+  padding: 10px 20px;
+  border-radius: 30px;
+  margin-top: 10px;
+  transition: all .3s;
+  &:hover {
+    $hover-bg: rgba(#ccc,.8);
+    border-color: $hover-bg;
+    background-color: $hover-bg;
+    color: #121212;
+  }
+}
+
+@mixin heading($c:#fff, $bg:#121212) {
+  line-height: 1;
+  font-size: clamp(2rem, 5dvw, 2.5rem);
+  position: relative;
+  background-color: $bg;
+  padding: 0 10px;
+  -webkit-text-stroke: 1px $c;
+  color: transparent;
+  align-self: center;
+  @include df(center, center);
+  &::before {
+    content: '';
+    height: 2px;
+    width: 200%;
+    max-width: calc(70dvw);
+    background-color: $c;
+    border: 1px solid $c;
+    position: absolute;
+    bottom: 50%;
+    z-index: -1;
+    @media (max-width: 400px) {
+      max-width: calc(375px);
     }
   }
 }

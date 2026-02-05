@@ -1,8 +1,9 @@
 @use '../util/' as *;
 
 header {
-  background: linear-gradient(to bottom, rgba(#121212,.7), transparent);
-  position: absolute;
+  background: rgba(#121212,.7);
+  position: fixed;
+
   z-index: 10;
   top: 0;
   right: 0;
