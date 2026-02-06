@@ -57,75 +57,32 @@
   }
 }
 
-.services {
-  padding: 20px var(--side-padding);
-  background-image: linear-gradient(to bottom, #000 50%, #fff 50%);
-  min-height: 100dvh;
-  @include df(space-between, normal, column, 50px);
-  @media (min-width: $desktop) {
-    @include df(space-between, center, column, 10px);
-    >* {
-      @media (min-width: $desktop) {
-        max-width: $desktop;
-      }
+.home__services {
+  padding: 50px var(--side-padding);
+  @include df(center,  center, column, 70px);
+  h2 {
+    @include heading(var(--text), var(--bg));
+    & {
+      color: var(--text);
+      font-size: clamp(2rem, 5dvw, 3rem);
     }
   }
-  
-  >div {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
-    transition: all .3s;
-    img {
-      display: block;
-      width: 100%;
-    }
-    @media (min-width: $tab) {
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
+  &__content {
+    @include df(center, center, row wrap, 30px);
+    &__card {
+      @include card;
     }
   }
-  &__manual, &__auto {
-    &__content {
-      @include df(normal, start, column, 20px);
-      h2 {
-        font-variant: small-caps;
-        font-size: clamp(2rem, 5dvw, 3rem);
-        color: transparent;
-        -webkit-text-stroke: 1px #fff;
-      }
-      a {
-        color: #ccc;
-        background: #121212;
-        padding: 10px 20px;
-        transition: all .3s;
-        &:hover {
-          background-color: #3d3c3c;
-          color: #fff;
-        }
-      }
+  &__morebtn {
+    @include btn(#fff, var(--text));
+    & {
+      background: var(--text);
     }
   }
-  &__manual {
-    color: #fff;
-    direction: rtl;
-    &__content {
-      direction: ltr;
-    }
-  }
-  &__auto {
-    &__content {
-      h2 {
-        -webkit-text-stroke: 2px #000;
-      }
-    }
-  }
-  
 }
 
-
 footer {
-  padding: 20px 5%;
+  padding: 40px var(--side-padding);
   background-color: #000;
   color: #fff;
   min-height: 50dvh;
@@ -142,7 +99,7 @@ footer {
     font-style: italic;
     margin-bottom: 10px;
   }
-  .useful__links {
+  .useful__links, .more__links, .footer__contact__links {
     margin-top: 20px;
     list-style: none;
     @include df(center, center, column, 25px);
@@ -190,19 +147,22 @@ footer {
         }
         &.facebook {
           &:hover {
-            background: rgba(blue, .3);
+            transform: translateY(-5px);
+            background: rgba(blue, .1);
             color: blue;
           }
         }
         &.instagram {
           &:hover {
-            background: rgba(crimson, .4);
+            transform: translateY(-5px);
+            background: rgba(crimson, .1);
             color: crimson;
           }
         }
         &.twitter {
           &:hover {
-            background: rgba(dodgerblue, .4);
+            transform: translateY(-5px);
+            background: rgba(dodgerblue, .1);
             color: dodgerblue;
           }
         }
@@ -225,7 +185,8 @@ footer {
     grid-template-areas: 
       "h . ."
       "m . s"
-      "u . s"
+      "u l s"
+      "f . s"
       "c c c"
     ;
     h1 {
@@ -236,6 +197,22 @@ footer {
     }
     .useful__links {
       grid-area: u;
+      @include df(normal, start, column, 20px);
+      >* {
+        text-align: left !important;
+      }
+    }
+    .more__links {
+      grid-area: l;
+      align-self: start;
+      @include df(normal, start, column, 20px);
+      >* {
+        text-align: left !important;
+      }
+    }
+    .footer__contact__links {
+      grid-area: f;
+      align-self: start;
       @include df(normal, start, column, 20px);
       >* {
         text-align: left !important;

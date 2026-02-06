@@ -1,0 +1,124 @@
+@use '../util/' as *;
+
+.about {
+  padding: 100px var(--side-padding);
+  min-height: 50dvh;
+  @include df(center, center, column, 10px);
+  h2 {
+    @include heading(var(--text), var(--bg));
+    & {
+      color: var(--text);
+      font-size: clamp(2rem, 5dvw, 3rem);
+    }
+  }
+  &__content {
+    text-align: center;
+  }
+  &__timeline {
+    margin-top: 50px;
+    @include df(center, center, column, 20px);
+    &__content {
+      @include df(center, center, column);
+      &__each {
+        max-width: 400px;
+        @include df(normal, normal, row);
+        &:not(:last-of-type) {
+          >* {
+            padding-bottom: 50px;
+          }
+        }
+        >* {
+          flex: 1;
+          max-width: 50%;
+        }
+        h3 {
+          font-size: 2rem;
+          border-right: 2px solid;
+          text-align: right;
+          padding: 20px 20px 0 0;
+        }
+        >div {
+          border-left: 2px solid;
+          @include df(normal, normal, column);
+          b {
+            border-bottom: 1px solid;
+            padding: 20px 0 10px 20px;
+            position: relative;
+            &::before {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              transform: translate(calc(-50% - 2px), 50%);
+              background-color: var(--bg);
+              border-radius: 50%;
+              border: 1px solid;
+              height: 10px;
+              width: 10px;
+            }
+          }
+          p {
+            padding: 10px 0 20px 20px;
+          }
+        }
+        &:nth-of-type(2n) {
+          @include df(normal, normal, row-reverse);
+          h3 {
+            border-right: none;
+            border-left: 2px solid;
+            padding: 20px 0 0 20px;
+            text-align: left;
+          }
+          >div {
+            border: none;
+            border-right: 2px solid;
+            text-align: right;
+            @include df(normal, normal, column);
+            b {
+              border-bottom: 1px solid;
+              padding: 20px 20px  10px 0;
+              &::before {
+                left: auto;
+                right: 0;
+                transform: translate(calc(50% + 2px), 50%);
+              }
+            }
+            p {
+              padding: 10px 20px 20px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.mission {
+  padding: 100px var(--side-padding);
+  min-height: 50dvh;
+  background: var(--text);
+  color: var(--bg);
+  @include df(center, center, column, 30px);
+  &__content {
+    flex: 1;
+    text-align: center;
+    @include df(normal, normal, column, 10px);
+    h3 {
+      font-size: 2.5rem;
+    }
+  }
+  &__img {
+    flex: 1;
+    img {
+      border-radius: 20px;
+      display: block;
+      width: 100%;
+    }
+  }
+  @media (min-width: $tab) {
+    @include df(center, center, row wrap, 30px);
+    &__content {
+      text-align: left;
+    }
+  }
+}

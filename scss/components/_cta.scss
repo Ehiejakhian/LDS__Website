@@ -1,0 +1,27 @@
+@use '../util/' as *;
+
+.cta {
+  padding: 30px;
+  max-width: $mini-tab;
+  background: #636363;
+  color: var(--bg);
+  @include df(center, center, column, 20px);
+  &__content {
+    @include df(center, center, row wrap, 10px);
+    p {
+      width: 100%;
+      text-align: center;
+    }
+    a {
+      @include btn(var(--bg), var(--text));
+      & {
+        border-radius: 0;
+      }
+    }
+  }
+  @media (min-width: $mini-tab) {
+    margin: 0 auto 0 auto;
+    transform: translateY(20px);
+    z-index: 1;
+  }
+}

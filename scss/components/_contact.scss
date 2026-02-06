@@ -1,6 +1,7 @@
 @use '../util/' as *;
 
 .contact {
+  padding-top: 100px;
   min-height: calc(100dvh - 100px);
   @include df(center, center, column, 20px);
   &__content {

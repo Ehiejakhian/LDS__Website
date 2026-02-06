@@ -1,0 +1,20 @@
+@use '../util/' as *;
+
+.choose {
+  padding: 50px var(--side-padding);
+  min-height: 70dvh;
+  @include df(center, center, column, 50px);
+  h2 {
+    font-size: 3rem;
+  }
+  ul {
+    list-style: none;
+    @include df(normal, center, column, 20px);
+    li {
+      text-align: center;
+      border: 1px solid;
+      padding: 10px 20px;
+      font-size: 2rem;
+    }
+  }
+}

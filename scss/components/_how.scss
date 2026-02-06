@@ -1,0 +1,81 @@
+@use '../util/' as *;
+
+.how {
+  padding: 50px var(--side-padding);
+  @include df(center, center, column, 30px);
+  h2 {
+    font-size: 3rem;
+  }
+  &__content {
+    counter-reset: step;
+    border-radius: 20px;
+    overflow: hidden;
+    @include df(normal, normal, column);
+    &__each {
+      // border: 2px solid;
+      width: 100%;
+      min-height: 100px;
+      padding: 60px 20px 40px 20px;
+      position: relative;
+      @include df(normal, start, column, 20px);
+      &::before {
+        counter-increment: step;
+        content: counter(step);
+        width: 40px;
+        height: 40px;
+        background: var(--medium);
+        border: 2px solid;
+        font-weight: 700;
+        border-radius: 50%;
+        @include df(center, center);
+      }
+      &:not(:last-of-type) {
+        border-bottom: 3px solid var(--text);
+      }
+      &:not(:last-of-type)::after {
+        content: '';
+        position: absolute;
+        border: 3px solid var(--text);
+        border-top: none;
+        border-left: none;
+        bottom: 0;
+        width: 40px;
+        height: 40px;
+        background: var(--bg);
+        z-index: 1;
+        transform: translateY(calc(50% + 2px)) rotate(45deg);
+      }
+      &:nth-of-type(2n) {
+        background: #f1f1f1;
+        &::after {
+          background: #f1f1f1;
+        }
+      }
+      h3 {
+        font-size: 2rem;
+        font-weight: 400;
+      }
+      a {
+        @include btn(var(--text), var(--bg));
+      }
+    }
+    @media (min-width: $desktop) {
+      @include df(normal, normal, row);
+      &__each {
+        padding: 20px 40px;
+        // border: 2px solid;
+        min-width: min-content;
+        flex: 1;
+        &:not(:last-of-type)::after {
+          top: 50%;
+          right: 0;
+          transform: translateX(calc(50% + 2px)) rotate(-45deg);
+        }
+        &:not(:last-of-type) {
+          border-bottom: none;
+          border-right: 3px solid;
+        }
+      }
+    }
+  }
+}

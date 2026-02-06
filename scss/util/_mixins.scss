@@ -1,5 +1,10 @@
 
 
+@font-face {
+  font-family: 'outfit';
+  src: url('../../assets/fonts/Outfit-VariableFont_wght.ttf');
+}
+
 @mixin df($j:normal, $a:normal, $fl:row, $g:0){
   display: flex;
   justify-content: $j;
@@ -82,8 +87,8 @@
   &::before {
     content: '';
     height: 2px;
-    width: 200%;
-    max-width: calc(70dvw);
+    width: 150%;
+    max-width: 70dvw;
     background-color: $c;
     border: 1px solid $c;
     position: absolute;
@@ -91,6 +96,57 @@
     z-index: -1;
     @media (max-width: 400px) {
       max-width: calc(375px);
+    }
+  }
+}
+
+@mixin card {
+  border: 1px solid;
+  height: 500px;
+  width: 300px;
+  transition: all .3s;
+  @include df(normal, normal, column);
+  * {
+    transition: all .3s;
+  }
+  &__img {
+    flex: 100%;
+    padding: auto;
+    background: #ccc;
+    padding: 20px;
+    @include df(center, center);
+    img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      filter: grayscale(10);
+    }
+  }
+  &__info {
+    margin-top: auto;
+    border: 1px solid;
+    border-top: 2px solid;
+    padding: 20px;
+    text-align: center;
+    @include df(normal, normal, column, 10px);
+    h3 {
+      font-size: 2rem;
+    }
+    >a {
+      @include btn(var(--text), var(--bg));
+      & {
+        text-align: center;
+      }
+    }
+  }
+  &:hover {
+    transform: translateY(-10px);
+    >:nth-child(1) {
+      // background: #fff;
+      img {
+        filter: grayscale(0);
+      }
     }
   }
 }

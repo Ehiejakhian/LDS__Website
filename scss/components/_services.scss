@@ -1,0 +1,18 @@
+@use '../util/' as *;
+
+.services {
+  padding: 100px var(--side-padding);
+  min-height: 100dvh;
+  position: relative;
+  @include df(normal, normal, column, 50px);
+  h2 {
+    @include heading(#121212, #fff);
+  }
+
+  &__content {
+    @include df(center, center, row wrap, 30px);
+    &__card {
+      @include card;
+    }
+  }
+}

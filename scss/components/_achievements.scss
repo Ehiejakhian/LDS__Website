@@ -5,18 +5,27 @@
   padding: 20px var(--side-padding);
   margin: 20px 0;
   &__content {
-    @include df(normal, start, row wrap, 20px);
+    @include df(center, center, column, 50px);
+    @media (min-width: $mini-tab) {
+      @include df(center, center, row wrap, 50px);
+    }
     &__item {
-      border: 1px solid #121212;
       padding: clamp(10px, 2dvw, 15px) 10px;
       padding-bottom: 20px;
-      border-bottom: 2px solid;
       transition: all 1s;
-      @include df(normal, center, row, 20px);
+      @include df(center, center, column, 10px);
       i {
         font-size: 30px;
+        border: 1px solid;
+        width: 70px;
+        height: 70px;
+        background: var(--text);
+        color: var(--bg);
+        border-radius: 5px;
+        @include df(center, center);
       }
       div {
+        @include df(center, center, column);
         h2 {
           font-size: clamp(2rem, 4dvw, 3rem);
         }
