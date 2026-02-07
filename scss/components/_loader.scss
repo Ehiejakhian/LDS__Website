@@ -1,0 +1,52 @@
+
+@use '../util/' as *;
+
+div.loader {
+  display: none;
+  &.active {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    z-index: 15;
+    @include df(center, center);
+  }
+  &__content {
+    // border: 1px solid;
+    @include df(center, center, column, 10px);
+    &__img {
+      border: 2px solid;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      @include df(center, center);
+    }
+    &__text {
+      font-size: 18px;
+      font-weight: 700;
+      @include df(center, center, row, 5px);
+      span {
+        // background: var(--text);
+        // color: var(--bg);
+        border: 1px solid;
+        width: 25px;
+        height: 25px;
+        animation: loader__text 2s ease-in-out infinite;
+        @include df(center, center);
+        @for $i from 1 through 6 {
+          &:nth-of-type(#{$i}) {
+            animation-delay: #{'.'}#{$i}s;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes loader__text {
+  0% {padding: 10px;}
+  50% {padding: 40px; background: var(--text); color: var(--bg);}
+  100% {padding: 10px;}
+}
