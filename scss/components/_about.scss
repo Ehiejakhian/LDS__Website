@@ -1,10 +1,12 @@
 @use '../util/' as *;
 
 .about {
-  padding: 100px var(--side-padding);
+  padding-top: 150px;
   min-height: 50dvh;
+  position: relative;
   @include df(center, center, column, 10px);
   h2 {
+    padding: 0 var(--side-padding);
     @include heading(var(--text), var(--bg));
     & {
       color: var(--text);
@@ -13,10 +15,38 @@
   }
   &__content {
     text-align: center;
+    min-height: 50dvh;
+    padding: 0 var(--side-padding);
+  }
+  $time-line-bg: #dfdfdf;
+  & svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    position-anchor: --svg;
+    position-area: top;
+    fill: $time-line-bg;
+    margin-bottom: -1px;
   }
   &__timeline {
+    // background-color: $time-line-bg;
+    width: 100%;
     margin-top: 50px;
-    @include df(center, center, column, 20px);
+    anchor-name:  --svg;
+    position: relative;
+    padding: 0 var(--side-padding);
+    @include df(normal, normal, column, 20px);
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      background: $time-line-bg;
+    }
     &__content {
       @include df(center, center, column);
       &__each {

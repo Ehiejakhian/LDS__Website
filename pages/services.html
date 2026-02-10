@@ -61,12 +61,28 @@
         <li><a href="#">Get a Driver's License</a></li>
       </ul>
     </div>
+
+    <!-- STICKY CONTACT BUTTON -->
+    <div class="header__sticky">
+      <a href="tel:+1234567890" class="header__sticky__button"><i class="fa fa-phone"></i></a>
+      <a href="https://wa.me" target="_blank" class="header__sticky__button"><i class="fa fa-whatsapp"></i></a>
+    </div>
   </header>
   <main>
     <!-- SERVICES -->
     <section class="services">
       <h2>Our Services</h2>
       <div class="services__content">
+        <div class="services__content__card">
+          <div class="services__content__card__img">
+            <img src="../images/services__imgs/gear__comparison.png" alt="">
+          </div>
+          <div class="services__content__card__info">
+            <h3>Learn to Drive</h3>
+            <p>Complete driving courses for beginners. Choose between <b>automatic</b> and <b>manual</b> transmission with flexible packages.</p>
+            <button id="open__modal">See Packages</button>
+          </div>
+        </div>
         <div class="services__content__card">
           <div class="services__content__card__img">
             <img src="../images/services__imgs/drivingLicence.png" alt=""/>
@@ -109,63 +125,169 @@
         </div>
         <div class="services__content__card">
           <div class="services__content__card__img">
-            <img src="../images/services__imgs/dd.jpg" alt="img"/>
+            <img src="../images/services__imgs/car__dash.png" alt="img"/>
           </div>
           <div class="services__content__card__info">
-            <h3>Car Dashboard Installation</h3>
+            <h3>Car Dash Camera Installation</h3>
             <p>"Update" your car's dashboard - Literaly.</p>
             <a href="#">Interested?</a>
           </div>
         </div>
       </div>
     </section>
-    <!-- ACHIEVEMENTS -->
-    <section class="achievements">
-      <div class="achievements__content">
-        <div class="achievements__content__item">
-          <i class="fa fa-smile-o"></i>
-          <div>
-            <h2>5+</h2>
-            <p>Years of Experience</p>
+
+    <!-- PACKAGES -->
+    <section class="modal" id="packages">
+      <div class="modal__overlay" id="close__modal"></div>
+      <div class="modal__close" id="close__modal" title="Close this modal">
+        <span></span>
+        <span></span>
+      </div>
+      <div class="modal__content">
+        <div class="package">
+          <h2>Learn to Drive</h2>
+          <div class="package__type">
+            <span class="selected">Automatic</span>
+            <span>Manual</span>
+          </div>
+          <div class="package__grid">
+            <div class="package__card">
+              <div class="package__card__head">
+                <h3>Basic</h3>
+                <b>30 Minutes</b>
+              </div>
+              <div class="package__card__body">
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+              </div>
+            </div>
+            <div class="package__card">
+              <div class="package__card__head">
+                <h3>Standard</h3>
+                <b>40 Minutes</b>
+              </div>
+              <div class="package__card__body">
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+              </div>
+            </div>
+            <div class="package__card">
+              <div class="package__card__head">
+                <h3>Premium</h3>
+                <b>1 Hour</b>
+              </div>
+              <div class="package__card__body">
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+              </div>
+            </div>
+            <div class="package__card">
+              <div class="package__card__head">
+                <h3>Vip</h3>
+                <b>1 Hour</b>
+              </div>
+              <div class="package__card__body">
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+                <div class="package__card__body__each" id="pkg">
+                  <p><b>1</b> Week</p>
+                  <p id="pkg__price">₦35, 000</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="achievements__content__item">
-          <i class="fa fa-smile-o"></i>
-          <div>
-            <h2>50+</h2>
-            <p>Happy Students</p>
+        <form action="#" class="modal__form">
+          <h2>Book via Whatsapp</h2>
+          <div class="modal__form__name">
+            <fieldset class="entry__area">
+              <input type="text" name="name" id="name" class="correct" placeholder="John Doe"/>
+              <legend for="name">Your Name</legend>
+            </fieldset>
+            <span class="error-message__name">A valid name please</span>
           </div>
-        </div>
-        <div class="achievements__content__item">
-          <i class="fa fa-car"></i>
-          <div>
-            <h2>2</h2>
-            <p>Professional Instructors</p>
+          <div class="modal__form__email">
+            <fieldset class="entry__area">
+              <input type="email" name="email" id="email" placeholder="youremail@example.com"/>
+              <legend for="email">Your Email</legend>
+            </fieldset>
+            <span class="error-message__email">This email is not valid</span>
           </div>
-        </div>
-        <div class="achievements__content__item">
-          <i class="fa fa-check-circle"></i>
-          <div>
-            <h2>95%</h2>
-            <p>Pass Rate</p>
+          <div class="modal__form__number">
+            <fieldset class="entry__area">
+              <input type="tel" name="number" id="number" pattern="(^(((\+?234|234)[0-9]{10})|(0[0-9]{10}))$)" placeholder="0800 000 0000"/>
+              <legend for="number">Phone Number</legend>
+            </fieldset>
+            <span class="error-message__phone">This number is not valid</span>
           </div>
-        </div>
-        <div class="achievements__content__item">
-          <i class="fa fas fa-magic"></i>
-          <div>
-            <h2>30+</h2>
-            <p>Various Training Equipment</p>
+          <div class="modal__form__location">
+            <fieldset class="entry__area">
+              <input type="text"/>
+              <legend for="number">Your Location</legend>
+            </fieldset>
+            <span class="error-message__phone">This is not a valid location</span>
           </div>
-        </div>
-        <div class="achievements__content__item">
-          <i class="fa fa-car"></i>
-          <div>
-            <h2>2</h2>
-            <p>Cars in good condition</p>
-          </div>
-        </div>
+          <input type="submit" value="Book Now" class="modal__form__submit">
+        </form>
       </div>
     </section>
+
     <!-- FAQS -->
     <section class="faqs">
       <h2>FAQs</h2>
@@ -240,7 +362,9 @@
       </p>
     </footer>
   
-  <script src="./scripts/main.js" type="module"></script>
+  <script src="../scripts/main.js" type="module"></script>
   <script src="../scripts/loader.js"></script>
+
+  <script type="module" src="../scripts/services/modal.js" defer></script>
 </body>
 </html>

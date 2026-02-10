@@ -59,6 +59,7 @@
 
 /**---New Mixins---**/
 @mixin btn($c:#ccc, $bg:#121212) {
+  font: inherit;
   text-decoration: none;
   color: $c;
   border: 1px solid;
@@ -66,6 +67,8 @@
   border-radius: 30px;
   margin-top: 10px;
   transition: all .3s;
+  background: $bg;
+  outline: none;
   &:hover {
     $hover-bg: rgba(#ccc,.8);
     border-color: $hover-bg;
@@ -102,7 +105,7 @@
 
 @mixin card {
   border: 1px solid;
-  height: 500px;
+  min-height: 600px;
   width: 300px;
   transition: all .3s;
   @include df(normal, normal, column);
@@ -133,7 +136,7 @@
     h3 {
       font-size: 2rem;
     }
-    >a {
+    >a,button {
       @include btn(var(--text), var(--bg));
       & {
         text-align: center;
@@ -149,4 +152,8 @@
       }
     }
   }
+}
+
+@keyframes swapButton {
+  
 }
