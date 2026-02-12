@@ -82,11 +82,16 @@
   font-size: clamp(2rem, 5dvw, 2.5rem);
   position: relative;
   background-color: $bg;
-  padding: 0 10px;
   -webkit-text-stroke: 1px $c;
   color: transparent;
   align-self: center;
   @include df(center, center);
+  &>span {
+    position: relative;
+    z-index: 2;
+    background: $bg;
+    padding: 0 10px;
+  }
   &::before {
     content: '';
     height: 2px;
@@ -96,7 +101,7 @@
     border: 1px solid $c;
     position: absolute;
     bottom: 50%;
-    z-index: -1;
+    z-index: 1;
     @media (max-width: 400px) {
       max-width: calc(375px);
     }
@@ -155,5 +160,9 @@
 }
 
 @keyframes swapButton {
-  
+  0% {
+    @include df(normal,  normal, column, 10px);
+  }100% {
+    @include df(normal,  normal, column-reverse, 10px);
+  }
 }

@@ -13,7 +13,7 @@
       text-align: center;
     }
     a {
-      @include btn(var(--bg), var(--text));
+      @include btn(var(--bg), transparent);
       & {
         border-radius: 0;
       }

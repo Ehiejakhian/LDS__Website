@@ -1,15 +1,47 @@
 @use '../util/' as *;
 
 .services {
-  padding: 100px var(--side-padding);
   min-height: 100dvh;
   position: relative;
   @include df(normal, normal, column, 50px);
-  h2 {
-    @include heading(#121212, #fff);
+  &__intro {
+    padding: 100px var(--side-padding);
+    background:  var(--medium);
+    min-height: 70dvh;
+    position: relative;
+    @include df(center, center, column, 20px);
+    @media (min-width: $tab) {
+      min-height: 50dvh;
+    }
+    h2 {
+      @include heading(#121212, var(--medium));
+      & {
+        -webkit-text-fill-color: var(--text);
+      }
+    }
+    p {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    a {
+      @include btn(var(--text), transparent);
+      &:hover {
+        transform: translateY(10px);
+        background: #fff;
+        border: 1px solid;
+      }
+    }
+    svg {
+      fill: var(--medium);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+    }
   }
-
+  
   &__content {
+    padding: 100px var(--side-padding);
     @include df(center, center, row wrap, 30px);
     &__card {
       @include card;
